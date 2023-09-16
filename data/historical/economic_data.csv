@@ -1,0 +1,27 @@
+import pandas as pd
+import random
+import datetime
+
+# Generate synthetic economic data
+def generate_economic_data(start_date, end_date):
+    date_range = pd.date_range(start_date, end_date, freq='M')  # Monthly data
+    data = {
+        'Date': date_range,
+        'GDP_Growth_Rate': [random.uniform(0.1, 0.5) for _ in range(len(date_range))],
+        'Unemployment_Rate': [random.uniform(3.5, 6.5) for _ in range(len(date_range))],
+        'Inflation_Rate': [random.uniform(1.0, 3.0) for _ in range(len(date_range))],
+    }
+
+    return pd.DataFrame(data)
+
+# Specify the date range
+start_date = '2023-01-01'
+end_date = '2023-12-31'
+
+# Generate synthetic economic data
+economic_data = generate_economic_data(start_date, end_date)
+
+# Save the data to a CSV file
+economic_data.to_csv('data/economic_data.csv', index=False)
+
+print("economic_data.csv created successfully.")

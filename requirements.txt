@@ -1,0 +1,7 @@
+numpy~=1.25.2
+pandas~=2.1.0
+pyyaml==5.4.1
+requests~=2.31.0
+matplotlib==3.4.2
+downloadduxiu~=0.9
+yfinance~=0.2.28

@@ -1,0 +1,15 @@
+# Trading Strategy Configuration
+strategy_name: Simple Moving Average Crossover
+short_window: 50
+long_window: 200
+
+# Risk Management Configuration
+risk_percent: 2.0  # Maximum percentage of equity to risk on a single trade
+
+# Backtesting Configuration
+data_file: historical_stock_data.csv  # Path to historical stock price data
+initial_cash: 100000  # Initial cash available for trading
+commission_fee: 10  # Commission fee per trade
+
+# Performance Metrics Configuration
+risk_free_rate: 0.02  # Annual risk-free rate for benchmarking

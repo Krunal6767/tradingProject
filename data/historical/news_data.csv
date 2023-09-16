@@ -1,0 +1,28 @@
+import pandas as pd
+import random
+import datetime
+
+# Generate synthetic news data
+def generate_news_data(start_date, end_date, num_articles):
+    date_range = pd.date_range(start_date, end_date, freq='B')  # Business days
+    data = {
+        'Date': [random.choice(date_range) for _ in range(num_articles)],
+        'Source': [random.choice(['Reuters', 'Bloomberg', 'CNBC', 'WSJ']) for _ in range(num_articles)],
+        'Headline': [f"Stock market update: {random.choice(['bullish', 'bearish'])} trend continues" for _ in range(num_articles)],
+        'Content': [f"Lorem ipsum dolor sit amet, consectetur adipiscing elit. {random.choice(['Stocks', 'Indices', 'Commodities'])} {random.choice(['surged', 'plummeted', 'remained steady'])} today." for _ in range(num_articles)],
+    }
+
+    return pd.DataFrame(data)
+
+# Specify the date range and the number of articles
+start_date = '2023-01-01'
+end_date = '2023-09-15'
+num_articles = 100
+
+# Generate synthetic news data
+news_data = generate_news_data(start_date, end_date, num_articles)
+
+# Save the data to a CSV file
+news_data.to_csv('data/news_data.csv', index=False)
+
+print("news_data.csv created successfully.")

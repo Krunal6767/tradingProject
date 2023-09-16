@@ -1,0 +1,31 @@
+import pandas as pd
+import random
+import datetime
+
+# Generate synthetic stock price data
+def generate_stock_data(start_date, end_date, num_records):
+    date_range = pd.date_range(start_date, end_date, freq='B')  # Business days
+    data = {
+        'Date': date_range,
+        'Ticker': 'AAPL',  # Stock symbol (e.g., AAPL for Apple Inc.)
+        'Open': [random.uniform(140, 150) for _ in range(num_records)],
+        'High': [random.uniform(150, 160) for _ in range(num_records)],
+        'Low': [random.uniform(138, 148) for _ in range(num_records)],
+        'Close': [random.uniform(145, 155) for _ in range(num_records)],
+        'Volume': [random.randint(1000000, 5000000) for _ in range(num_records)],
+    }
+
+    return pd.DataFrame(data)
+
+# Specify the date range and the number of records
+start_date = '2023-01-01'
+end_date = '2023-09-15'
+num_records = 150
+
+# Generate synthetic data
+stock_data = generate_stock_data(start_date, end_date, num_records)
+
+# Save the data to a CSV file
+stock_data.to_csv('stock_data.csv', index=False)
+
+print("stock_data.csv created successfully.")
